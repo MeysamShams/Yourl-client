@@ -5,7 +5,7 @@ import { NavbarLogo } from './NavbarLogo'
 import { useState } from 'react'
 import CSS from 'csstype';
 
-const mountMenuStyle:CSS.Properties={visibility:'visible',opacity:1}
+const mountMenuStyle:CSS.Properties={display:'visible',opacity:1}
 const unMountMenuStyle:CSS.Properties={visibility:'hidden',opacity:0}
 
 export const Navbar=()=>{
@@ -14,7 +14,7 @@ export const Navbar=()=>{
     
     return (
         <>
-            <nav className="bg-violet-600 w-full py-4">
+            <nav className="bg-violet-600 fixed top-0 w-full py-4 z-50">
                 <div className='container  px-3 md:px-5 lg:px-10 m-auto flex flex-row justify-between'>
                     <div className='flex flex-row items-center'>
                         <button className='lg:hidden mr-5' onClick={()=>setShowMenu((prev)=>!prev)}>
@@ -33,7 +33,7 @@ export const Navbar=()=>{
                 </div>
             </nav>
             {/* responsive menu */}
-            <div className='container w-full bg-violet-600 py-5 md:px-5 m-auto transition-all' style={showMenu? mountMenuStyle : unMountMenuStyle}>
+            <div className='fixed top-16 container w-full z-50 bg-violet-600 py-5 md:px-5 m-auto transition-all' style={showMenu? mountMenuStyle : unMountMenuStyle}>
                     <NavbarItem visibility={'visibleOnSmallScreen'}  label='API Usage' path='/#api-usage' icon={<CodeIcon size={22} className="mr-2"/>}/>
                     <NavbarItem visibility={'visibleOnSmallScreen'} isExternalLink={true} label='Github Repository' path='https://github.com/MeysamShams/Yourl' icon={<MarkGithubIcon size={22} className="mr-2"/>}/>
             </div>
