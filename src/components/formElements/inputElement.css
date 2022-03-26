@@ -1,0 +1,12 @@
+
+@keyframes showInputError {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+.showInputError{
+    animation: showInputError 500ms;
+}

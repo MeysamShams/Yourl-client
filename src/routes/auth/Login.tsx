@@ -11,11 +11,10 @@ export const Login=()=>{
             username:"",
             password:"",
         },
-        validateOnChange:false,
         validationSchema:loginFormSchema,
         onSubmit:values=>console.log(values)
     })
-    
+
     return(
         <div className="container mx-auto mt-28 px-4">
             <div className='w-full lg:w-96 md:w-4/6 bg-white p-5 mx-auto rounded-md'>
@@ -25,9 +24,9 @@ export const Login=()=>{
                 <h1 className="font-bold text-gray-500 text-center">LOG IN TO YOUR ACCOUNT</h1>
                 <form onSubmit={formik.handleSubmit}>
 
-                    <InputElement name='username' value={formik.values.username} onChange={formik.handleChange} errorMsg={formik.errors.username} type="text" key={1} placeholder='Username (At least 6 characters)'/>
+                    <InputElement name='username' value={formik.values.username} onChange={formik.handleChange} isTouched={formik.touched.username} errorMsg={formik.errors.username} type="text" key={1} placeholder='Username (At least 6 characters)'/>
                     
-                    <InputElement name='password' value={formik.values.password} onChange={formik.handleChange} errorMsg={formik.errors.password} type="password" key={2} placeholder='Password (At least 6 characters)'/>
+                    <InputElement name='password' value={formik.values.password} onChange={formik.handleChange} isTouched={formik.touched.password} errorMsg={formik.errors.password} type="password" key={2} placeholder='Password (At least 6 characters)'/>
                     
                     <Button type={'submit'} isLoading={formik.isSubmitting} fullWidth={true} >Logn In</Button>
                 </form>

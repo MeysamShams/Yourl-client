@@ -1,10 +1,11 @@
 import { ChangeEventHandler, ReactElement } from "react"
-
+import './inputElement.css'
 interface InputElementProps{
     type:'text' | 'password' | 'email' | 'phone'
     name:string
     value:string,
     onChange:ChangeEventHandler
+    isTouched?:boolean
     errorMsg?:string
     className?:string
     placeholder?:string
@@ -25,7 +26,7 @@ export const InputElement=(props:InputElementProps)=>{
                 value={props.value}
                 onChange={props.onChange}
             />
-            <span style={props.errorMsg? {opacity:1}:{opacity:0}} className=" transition-all duration-700 text-xs text-rose-500 pt-2 text-left">{props.errorMsg}</span>
+            {(props.isTouched && props.errorMsg) ? <span className="showInputError transition-all text-xs text-rose-500 pt-2 text-left">{props.errorMsg}</span> : null}
         </div>
 
     );
