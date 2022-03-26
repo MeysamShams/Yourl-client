@@ -26,8 +26,8 @@ export const Navbar=()=>{
 
                     </div>
                     <div className='flex flex-row items-center'>
-                        <NavbarItem label='Login' path='/login' className='text-white rounded-md btn-ghost text-sm px-2 py-2' icon={<PersonIcon size={22} className="mr-2"/>}/>
-                        <NavbarItem label='Register' path='/register' className='text-gray-500 rounded-md text-sm bg-white px-2 py-2' icon={<PersonIcon size={22} className="mr-2"/>}/>
+                        <NavbarItem label='Login' path='/auth/login' className='text-white rounded-md btn-ghost text-sm px-2 py-2' icon={<PersonIcon size={22} className="mr-2"/>}/>
+                        <NavbarItem label='Register' path='/auth/register' className='text-gray-500 rounded-md text-sm bg-white px-2 py-2' icon={<PersonIcon size={22} className="mr-2"/>}/>
                         
                     </div>
                 </div>
