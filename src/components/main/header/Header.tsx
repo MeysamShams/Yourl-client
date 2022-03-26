@@ -22,7 +22,7 @@ export const Header=()=>{
                 <p className="text-white text-center mt-5 px-3 text-sm"><LinkIcon size={20} className="mr-2"/>Create a shortened link and use it anywhere.</p>
                 <UrlShortener/>
                 <div className='text-white text-center  mt-3'>
-                    <Link to="/register" className='btn btn-ghost text-sm  py-3'>Need More Customization ?</Link>
+                    <Link to="/auth/register" className='btn btn-ghost text-sm  py-3'>Need More Customization ?</Link>
                 </div>
             </div>
             <div className="md:w-5/6 lg:w-4/6 mx-auto mt-12 p-2 drop-shadow-md grid grid-cols-2 lg:grid-cols-4 md:gird-cols-4 gap-0 bg-white rounded-none lg:rounded-lg md:rounded-lg "> 

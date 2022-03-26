@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 type Visibility="alwaysVisible" | 'visibleOnSmallScreen' | 'visibleOnLargeScreen'
 interface NavbarItemProps{
     path:string
-    icon:ReactElement
+    icon?:ReactElement
     label:string
     className?:string
     isExternalLink?:boolean
