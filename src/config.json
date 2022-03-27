@@ -1,0 +1,8 @@
+{
+    "prod":{
+        "apiBaseUrl":"http://20.52.1.242:3000"
+    },
+    "dev":{
+        "apiBaseUrl":"http://localhost:3000"
+    } 
+}
