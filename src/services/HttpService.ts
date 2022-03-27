@@ -1,9 +1,9 @@
 import Axios from "axios";
-import {prod,dev} from 'config.json'
+import config from 'config.json'
 
 export class HttpService{
     protected readonly axios=Axios.create({
-        baseURL: process.env.NODE_ENV === 'production' ? prod.apiBaseUrl : dev.apiBaseUrl,
+        baseURL: process.env.NODE_ENV === 'production' ? config.prod.apiBaseUrl : config.dev.apiBaseUrl,
         timeout: 10000,
     });
     protected readonly get=this.axios.get
