@@ -5,7 +5,7 @@ import link from 'assets/images/url.png'
 import reliable from 'assets/images/reliable.png'
 
 import { AppFeature } from './AppFeature'
-import { UrlShortener } from './UrlShortener'
+import { UrlShortener } from './urlShortener/UrlShortener'
 import { Link } from 'react-router-dom'
 import { CurvedHeader } from './CurvedHeader'
 export const Header=()=>{
