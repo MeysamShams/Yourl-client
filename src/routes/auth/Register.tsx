@@ -3,7 +3,7 @@ import { Button } from 'components/formElements/Button';
 import { InputElement } from 'components/formElements/InputElement';
 import {useFormik} from 'formik'
 import { Link } from 'react-router-dom';
-import { registerFormSchema } from 'models/validationSchema/authSchema'
+import { registerFormSchema } from 'features/validations/authSchema'
 
 
 export const Register=()=>{

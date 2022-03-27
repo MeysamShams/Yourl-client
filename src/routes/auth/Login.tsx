@@ -2,7 +2,7 @@ import {SignInIcon} from '@primer/octicons-react'
 import { Button } from 'components/formElements/Button';
 import { InputElement } from 'components/formElements/InputElement';
 import { useFormik } from 'formik';
-import { loginFormSchema } from 'models/validationSchema/authSchema';
+import { loginFormSchema } from 'features/validations/authSchema';
 import { Link } from 'react-router-dom';
 export const Login=()=>{
 
