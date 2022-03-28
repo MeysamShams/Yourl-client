@@ -10,7 +10,7 @@ export const useUrlShortener=()=>{
     const handleSubmit=async(value:{url:string})=>{
         try{
             setLoading(true)
-            const urlData=await urlSerive.shortener("/public/shortener",value)
+            const urlData=await urlSerive.shortener(value)
             setLoading(false)
             setShortenedUrl(urlData.shortenedUrl)
             setShowModal(true)
