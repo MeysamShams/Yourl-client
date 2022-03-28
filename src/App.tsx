@@ -1,6 +1,6 @@
 import { MainLayout } from "layouts/MainLaytout";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { RedirectToUrl } from "routes/RedirectToUrl";
+import { RedirectToUrl } from "pages/RedirectToUrl";
 
 export const App=()=>{
     return (
