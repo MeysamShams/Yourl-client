@@ -7,6 +7,6 @@ export default class UrlModel{
         public createdAt:number,
         public expireAt:number
     ){
-        this.shortenedUrl=window.location.href+this.hash
+        this.shortenedUrl=window.location.host+"/"+this.hash
     }
 }
