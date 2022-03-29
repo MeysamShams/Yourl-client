@@ -10,7 +10,7 @@ export default class UrlService extends HttpService{
             const {data}=await this.post("/public/shortener",{url:originalUrl.url})
             return new UrlModel(data['_id'],data['originalUrl'],data['hash'],data['createdAt'],data['expireAt'])
         }catch(e:any){
-            throw toast(e.message,{type:"error"})
+            throw this.errorHandler(e)
         }
     }
 
@@ -20,7 +20,7 @@ export default class UrlService extends HttpService{
             const {data}=await this.get(`/public/${hash}/original-url`);
             return data['originalUrl']
         }catch(e:any){
-            throw toast(e.message,{type:"error"})
+            throw this.errorHandler(e)
         }
     }
 }
