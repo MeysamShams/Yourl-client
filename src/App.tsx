@@ -25,7 +25,7 @@ export const App=()=>{
                 <Route path="/panel"  element={<h1>admin panel</h1>} />
                 <Route path="/404"  element={<NotFound404/>} />
                 <Route path="/500"  element={<ServerUnavailable503/>} />
-                <Route path="/:shortUrl"  element={<RedirectToUrl/>} />      
+                <Route path="/:shortUrl" element={<RedirectToUrl/>} />      
                 <Route path="*" element={<NotFound404/>} />
 
             </Routes>
