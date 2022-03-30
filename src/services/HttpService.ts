@@ -14,7 +14,7 @@ export default abstract class HttpService{
     protected static readonly patch=this.axios.patch
 
     // handle service errors
-    protected static errorHandler(error:any):void{
+    public static errorHandler(error:any):void{
 
             if(Axios.isAxiosError(error)){
 

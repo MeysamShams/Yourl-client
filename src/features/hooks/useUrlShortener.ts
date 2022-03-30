@@ -15,6 +15,7 @@ export const useUrlShortener=()=>{
             setShowModal(true)
         }catch(e){
             setLoading(false)
+            UrlService.errorHandler(e)
         }
     }
     return {

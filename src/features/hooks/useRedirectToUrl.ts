@@ -9,13 +9,17 @@ export const useRedirectToUrl=()=>{
     const navigate = useNavigate();
         
     const redirectToOriginalUrl=async():Promise<void>=>{
-        if(shortUrl?.length===6 && shortUrl.match(/^[a-z0-9]+$/i)){
+        try{
+            if(shortUrl?.length===6 && shortUrl.match(/^[a-z0-9]+$/i)){
 
-            const url=await UrlService.getOriginalUrl(shortUrl)
-            window.location.replace(url);
-            
-        }else{
-            navigate("/404")
+                const url=await UrlService.getOriginalUrl(shortUrl)
+                window.location.replace(url);
+                
+            }else{
+                navigate("/404")
+            }
+        }catch(e){
+            UrlService.errorHandler(e)
         }
     }
 
