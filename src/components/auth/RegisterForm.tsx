@@ -4,9 +4,13 @@ import { InputElement } from 'components/formElements/InputElement';
 import {useFormik} from 'formik'
 import { Link } from 'react-router-dom';
 import { registerFormSchema } from 'features/validations/authSchema'
+import { useRegister } from 'features/hooks/auth/useRegister';
 
 
 export const RegisterForm=()=>{
+
+    const handleRegister=useRegister()
+    
     const formik=useFormik({
         initialValues:{
             username:"",
@@ -14,7 +18,7 @@ export const RegisterForm=()=>{
             confirmPassword:""
         },
         validationSchema:registerFormSchema,
-        onSubmit:values=>console.log(values)
+        onSubmit:handleRegister
     })
     return(
         <div className="container mx-auto mt-28 px-4">
