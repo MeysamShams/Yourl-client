@@ -1,6 +1,6 @@
-import { useRedirectToUrl } from "features/hooks/useRedirectToUrl"
+import { Redirect } from "components/main/urlShortener/Redirect"
 
 export const RedirectToUrl=()=>{
-    useRedirectToUrl()
-    return <></>
+    
+    return <Redirect/>
 }
