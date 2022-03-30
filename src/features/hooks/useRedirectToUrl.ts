@@ -7,12 +7,11 @@ import UrlService from "services/UrlService"
 export const useRedirectToUrl=()=>{
     const {shortUrl}=useParams<{shortUrl:string}>();
     const navigate = useNavigate();
-    const service=new UrlService();
         
     const redirectToOriginalUrl=async():Promise<void>=>{
         if(shortUrl?.length===6 && shortUrl.match(/^[a-z0-9]+$/i)){
 
-            const url=await service.getOriginalUrl(shortUrl)
+            const url=await UrlService.getOriginalUrl(shortUrl)
             window.location.replace(url);
             
         }else{

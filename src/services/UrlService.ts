@@ -1,11 +1,11 @@
 import UrlModel from "models/UrlModel";
 import { toast } from "react-toastify";
-import { HttpService } from "./HttpService";
+import HttpService from "./HttpService";
 
-export default class UrlService extends HttpService{
+export default abstract class UrlService extends HttpService{
     
     // simple shortener
-    async shortener(originalUrl:{url:string}):Promise<UrlModel>{
+    static async shortener(originalUrl:{url:string}):Promise<UrlModel>{
         try{
             const {data}=await this.post("/public/shortener",{url:originalUrl.url})
             return new UrlModel(data['_id'],data['originalUrl'],data['hash'],data['createdAt'],data['expireAt'])
@@ -15,7 +15,7 @@ export default class UrlService extends HttpService{
     }
 
     // get original url and redirect user to that
-    async getOriginalUrl(hash:string|undefined):Promise<string>{
+    static async getOriginalUrl(hash:string|undefined):Promise<string>{
         try{
             const {data}=await this.get(`/public/${hash}/original-url`);
             return data['originalUrl']

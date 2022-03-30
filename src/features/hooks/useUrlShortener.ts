@@ -5,12 +5,11 @@ export const useUrlShortener=()=>{
     const [loading,setLoading]=useState(false);
     const [showModal,setShowModal]=useState(false)
     const [shortenedUrl,setShortenedUrl]=useState("");
-    const urlSerive=new UrlService()
 
     const handleSubmit=async(value:{url:string})=>{
         try{
             setLoading(true)
-            const urlData=await urlSerive.shortener(value)
+            const urlData=await UrlService.shortener(value)
             setLoading(false)
             setShortenedUrl(urlData.shortenedUrl)
             setShowModal(true)

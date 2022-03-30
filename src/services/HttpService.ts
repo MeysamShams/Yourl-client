@@ -2,19 +2,19 @@ import Axios from "axios";
 import config from 'config.json'
 import { toast } from "react-toastify";
 
-export class HttpService{
-    private readonly axios=Axios.create({
+export default abstract class HttpService{
+    private static readonly axios=Axios.create({
         baseURL: process.env.NODE_ENV === 'production' ? config.prod.apiBaseUrl : config.dev.apiBaseUrl,
         timeout: 10000,
     });
-    protected readonly get=this.axios.get
-    protected readonly post=this.axios.post
-    protected readonly delete=this.axios.delete
-    protected readonly put=this.axios.put
-    protected readonly patch=this.axios.patch
+    protected static readonly get=this.axios.get
+    protected static readonly post=this.axios.post
+    protected static readonly delete=this.axios.delete
+    protected static readonly put=this.axios.put
+    protected static readonly patch=this.axios.patch
 
     // handle service errors
-    protected errorHandler(error:any):void{
+    protected static errorHandler(error:any):void{
 
             if(Axios.isAxiosError(error)){
 
@@ -68,12 +68,12 @@ export class HttpService{
     }
     
     // show errors using react toastify
-    private toastErrors(error:string):void{
+    private static toastErrors(error:string):void{
         toast(error,{type:"error"})
     }
 
     // extract error message from response data
-    private extractErrorMessage(errors:unknown):string{
+    private static extractErrorMessage(errors:unknown):string{
         let errorMessage="";
         if(Array.isArray(errors)){
             errors.forEach((msg:string)=>errorMessage+=msg+"\n")
