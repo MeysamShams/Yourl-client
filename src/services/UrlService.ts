@@ -7,7 +7,7 @@ export default abstract class UrlService extends HttpService{
     static async shortener(originalUrl:{url:string}):Promise<UrlModel>{
 
         const {data}=await this.post("/public/shortener",{url:originalUrl.url})
-        return new UrlModel(data['_id'],data['originalUrl'],data['hash'],data['createdAt'],data['expireAt'])
+        return new UrlModel(data['hash'],data['_id'],data['originalUrl'],data['createdAt'],data['expireAt'])
     }
 
     // get original url and redirect user to that
