@@ -18,7 +18,7 @@ const jwtDecoder=(): JWTPayload =>{
 const checkLoginStatus=():boolean=>{
     const decodedJwt=jwtDecoder();
     if(decodedJwt.exp){
-        if(new Date(decodedJwt.exp).getTime() > new Date().getTime()){
+        if(decodedJwt.exp*1000 > new Date().getTime()){
             return true
         }else{
             return false

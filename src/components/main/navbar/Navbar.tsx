@@ -30,14 +30,14 @@ export const Navbar=()=>{
                         {authCtx.isLoggedIn
                             ?
                             <>
-                                <NavbarItem label='Login' path='/auth/login'  />
-                                <NavbarItem label='Register' path='/auth/register' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
-                            </> 
-                            :
-                            <>
                                 <NavbarItem label='Profile' path='/profile' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
                                 <NavbarItem label='Logout' path='/auth/logout'  />
                         
+                            </> 
+                            :
+                            <>
+                                <NavbarItem label='Login' path='/auth/login'  />
+                                <NavbarItem label='Register' path='/auth/register' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
                             </> 
                         }
                     </div>
