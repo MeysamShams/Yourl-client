@@ -4,12 +4,12 @@ import { InputElement } from 'components/formElements/InputElement';
 import { useFormik } from 'formik';
 import { loginFormSchema } from 'features/validations/authSchema';
 import { Link } from 'react-router-dom';
-import { useLogin } from 'features/hooks/auth/useLogin';
+import { useAuth } from 'features/hooks/auth/useAuth';
 
 export const LoginForm=()=>{
 
     
-    const handleSubmit=useLogin();
+    const {handleLogin}=useAuth();
     
     const formik=useFormik({
         initialValues:{
@@ -17,7 +17,7 @@ export const LoginForm=()=>{
             password:"",
         },
         validationSchema:loginFormSchema,
-        onSubmit:handleSubmit
+        onSubmit:handleLogin
     })
 
     return(

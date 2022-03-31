@@ -4,12 +4,12 @@ import { InputElement } from 'components/formElements/InputElement';
 import {useFormik} from 'formik'
 import { Link } from 'react-router-dom';
 import { registerFormSchema } from 'features/validations/authSchema'
-import { useRegister } from 'features/hooks/auth/useRegister';
+import { useAuth } from 'features/hooks/auth/useAuth';
 
 
 export const RegisterForm=()=>{
 
-    const handleRegister=useRegister()
+    const {handleRegister}=useAuth()
     
     const formik=useFormik({
         initialValues:{
