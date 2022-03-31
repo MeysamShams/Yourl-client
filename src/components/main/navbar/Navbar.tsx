@@ -2,8 +2,9 @@ import {NavLink} from 'react-router-dom'
 import {MarkGithubIcon,CodeIcon,PersonAddIcon,PersonIcon,ThreeBarsIcon} from '@primer/octicons-react'
 import { NavbarItem } from './NavbarItem'
 import { NavbarLogo } from './NavbarLogo'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import CSS from 'csstype';
+import AuthContext from 'features/context/AuthContext'
 
 const mountMenuStyle:CSS.Properties={display:'visible',opacity:1}
 const unMountMenuStyle:CSS.Properties={visibility:'hidden',opacity:0}
@@ -11,7 +12,7 @@ const unMountMenuStyle:CSS.Properties={visibility:'hidden',opacity:0}
 export const Navbar=()=>{
 
     const [showMenu,setShowMenu]=useState(false)
-    
+    const authCtx=useContext(AuthContext);
     return (
         <>
             <nav className="bg-violet-600 fixed top-0 w-full py-4 z-50">
@@ -26,9 +27,19 @@ export const Navbar=()=>{
 
                     </div>
                     <div className='flex flex-row items-center'>
-                        <NavbarItem label='Login' path='/auth/login'  />
-                        <NavbarItem label='Register' path='/auth/register' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
+                        {authCtx.isLoggedIn
+                            ?
+                            <>
+                                <NavbarItem label='Login' path='/auth/login'  />
+                                <NavbarItem label='Register' path='/auth/register' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
+                            </> 
+                            :
+                            <>
+                                <NavbarItem label='Profile' path='/profile' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
+                                <NavbarItem label='Logout' path='/auth/logout'  />
                         
+                            </> 
+                        }
                     </div>
                 </div>
             </nav>
