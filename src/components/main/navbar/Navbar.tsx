@@ -31,7 +31,7 @@ export const Navbar=()=>{
                             ?
                             <>
                                 <NavbarItem label='Profile' path='/profile' className='btn bg-yellow-300 text-amber-900 border-0 hover:bg-yellow-400 py-2' />
-                                <NavbarItem label='Logout' path='/auth/logout'  />
+                                <button className='btn btn-ghost text-white' onClick={()=>authCtx.logout()}>Logout</button>
                         
                             </> 
                             :

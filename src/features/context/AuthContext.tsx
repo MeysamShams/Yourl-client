@@ -42,6 +42,7 @@ export const AuthContextProvider=(props:{children:ReactChild})=>{
     }
 
     const logout=():void=>{
+        localStorage.removeItem("accessToken")
         setIsLoggedIn(false)
         setUsername("")
     }
