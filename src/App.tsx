@@ -1,11 +1,17 @@
 import { MainLayout } from "layouts/MainLaytout";
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import { RedirectToUrl } from "pages/RedirectToUrl";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { NotFound404 } from "pages/Errors/NotFound404";
 import { ServerUnavailable503 } from "pages/Errors/ServerUnavailable503";
+import { ProfileLayout } from "layouts/ProfileLayout";
+import { useContext } from "react";
+import AuthContext from "features/context/AuthContext";
 export const App=()=>{
+
+    const authCtx=useContext(AuthContext)
+    
     return (
         <>
         <ToastContainer
@@ -22,7 +28,7 @@ export const App=()=>{
         <BrowserRouter>
             <Routes>
                 <Route path="/*"  element={<MainLayout/>} />
-                <Route path="/panel"  element={<h1>admin panel</h1>} />
+                <Route path="/profile/*"  element={authCtx.isLoggedIn?<ProfileLayout/>:<Navigate to="/auth/login"/>} />
                 <Route path="/404"  element={<NotFound404/>} />
                 <Route path="/500"  element={<ServerUnavailable503/>} />
                 <Route path="/:shortUrl" element={<RedirectToUrl/>} />      
