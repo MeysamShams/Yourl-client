@@ -15,7 +15,6 @@ export const useAuth=():{handleLogin:(value:AuthModel)=>Promise<void>,handleRegi
             const login=await AuthService.login(values);
             if(login){
                 authCtx.login();
-                navigate("/profile",{replace:true})
             }
         }catch(e){
             AuthService.errorHandler(e)
