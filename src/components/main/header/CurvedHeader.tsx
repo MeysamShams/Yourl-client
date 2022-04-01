@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import './header.css';
 
 export const CurvedHeader=({children}:{children: ReactNode})=>{
     return(

@@ -6,3 +6,17 @@
 
     font-family: 'Poppins', sans-serif;
 }
+.main-header{
+    background-image: url('assets/images/bg-header.svg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 460px;
+}
+
+.short-btn{
+    position: absolute;
+    top: 0;
+    right: 4px
+}
+
