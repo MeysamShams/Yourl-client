@@ -1,6 +1,6 @@
 {
     "prod":{
-        "apiBaseUrl":"https://yourll.herokuapp.com/"
+        "apiBaseUrl":"https://cleverbot.my3m.live:3001/"
     },
     "dev":{
         "apiBaseUrl":"http://localhost:3000"
